@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Profile Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+<a class="brand" href="#"><span class="brand-mark">P</span><span>Profile<span class="brand-light">Studio</span></span></a>
+<div class="sidebar-label">WORKSPACE</div>
+<nav><a class="nav-link active" href="#builder"><span>✦</span> Profile Builder</a><a class="nav-link" href="#saved"><span>▣</span> Saved Profiles</a></nav>
+<div class="sidebar-bottom"><div class="help-icon">?</div><div><strong>Build your presence</strong><small>Create a profile that stands out.</small></div></div>
+</aside>
+<main class="main-content">
+<header class="topbar"><div><div class="eyebrow">YOUR PERSONAL BRAND</div><h1>Profile Studio</h1><p>Create, customize and manage your profile cards.</p></div><div class="topbar-pill"><span class="online-dot"></span> Saved in this browser</div></header>
+<section class="workspace" id="builder">
+<div class="editor-panel">
+<div class="section-heading"><div><span class="step-tag">01 / EDITOR</span><h2>Build your profile</h2></div><button class="text-button" id="resetBtn" type="button">↺ Reset</button></div>
+<form id="profileForm">
+<input type="hidden" id="profileId">
+<div class="form-group"><label for="name">Full name <span>*</span></label><input id="name" maxlength="50" placeholder="e.g. Alex Morgan" required></div>
+<div class="form-group"><label for="role">Professional title</label><input id="role" maxlength="70" placeholder="e.g. Frontend Developer"></div>
+<div class="form-group"><label for="bio">About you</label><textarea id="bio" rows="3" maxlength="220" placeholder="Write a short introduction..."></textarea><div class="field-meta"><span>Make it personal and memorable</span><span id="bioCount">0 / 220</span></div></div>
+<div class="form-group"><label for="avatarType">Choose avatar style</label><select id="avatarType"><option value="girl">Girl avatar</option><option value="boy">Boy avatar</option><option value="custom">Use my own image</option></select><small class="hint">Select a girl or boy avatar, or add your own photo URL below.</small></div>
+<div class="form-group"><label for="avatar">Your photo URL <small>(optional)</small></label><input id="avatar" type="url" placeholder="https://example.com/photo.jpg"></div>
+<div class="form-group"><label for="email">Email address</label><input id="email" type="email" placeholder="alex@example.com"></div>
+<div class="form-group"><label for="location">Location</label><input id="location" placeholder="e.g. Chennai, India"></div>
+<div class="form-group"><label for="skills">Skills <small>Separate with commas</small></label><input id="skills" placeholder="HTML, CSS, JavaScript, UI Design"></div>
+<div class="form-row"><div class="form-group"><label for="linkedin">LinkedIn URL</label><input id="linkedin" type="url" placeholder="https://linkedin.com/in/..."></div><div class="form-group"><label for="github">GitHub URL</label><input id="github" type="url" placeholder="https://github.com/..."></div></div>
+<button class="primary-button" type="submit"><span>＋</span> <span id="submitLabel">Save Profile</span></button>
+</form>
+</div>
+<div class="preview-column">
+<div class="section-heading preview-heading"><div><span class="step-tag">02 / LIVE PREVIEW</span><h2>Your profile card</h2></div><span class="live-tag"><i></i> LIVE</span></div>
+<article class="profile-card" id="profileCard">
+<div class="card-cover"><div class="cover-orb orb-one"></div><div class="cover-orb orb-two"></div><span class="cover-caption">PROFILE / 2026</span></div>
+<div class="avatar-wrap"><img id="previewAvatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=faces" alt="Profile avatar"></div>
+<div class="profile-identity"><h3 id="previewName">Your Name</h3><p id="previewRole">Your professional title</p></div>
+<p class="preview-bio" id="previewBio">Your introduction will appear here. Tell people a little about yourself and what you do.</p>
+<div class="profile-details"><span id="previewEmail">✉ Add your email</span><span id="previewLocation">⌖ Add your location</span></div>
+<div class="skills-block"><h4>SKILLS &amp; EXPERTISE</h4><div class="skill-list" id="previewSkills"><span class="skill-chip">Your skills</span></div></div>
+<div class="social-links" id="previewSocial"><span class="social-placeholder">Social links will appear here</span></div>
+<div class="card-footer"><span>MADE WITH <b>PROFILE STUDIO</b></span><span>✦</span></div>
+</article>
+<div class="preview-actions"><button class="download-button" id="pdfBtn" type="button">↓ Download as PDF</button></div>
+<p class="preview-note">Your card updates instantly as you type.</p>
+</div>
+</section>
+<section class="saved-section" id="saved"><div class="section-heading"><div><span class="step-tag">03 / COLLECTION</span><h2>Saved profiles</h2></div><span class="count-badge" id="profileCount">0 profiles</span></div><div class="saved-list" id="savedList"><div class="empty-state"><span>✧</span><strong>No profiles saved yet</strong><p>Your saved profile cards will appear here.</p></div></div></section>
+</main></div><div class="toast" id="toast" role="status"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body></html>
